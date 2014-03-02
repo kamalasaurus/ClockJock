@@ -1,0 +1,14 @@
+{   "name": "clockjock"
+  , "version": "0.1"
+  , "author": "kamalasaurus"
+  , "devDependencies": {
+      "coffee-script": "*"
+    , "grunt-contrib-coffee": "*"
+    , "grunt-contrib-sass": "*"
+    , "grunt-contrib-concat": "*"
+    , "grunt-contrib-copy": "*"
+    , "grunt-contrib-clean": "*"
+    , "grunt-contrib-compress": "*"
+    , "grunt": "*"
+  }
+}
