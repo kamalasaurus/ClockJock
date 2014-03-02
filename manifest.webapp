@@ -1,0 +1,35 @@
+{
+  "version": "0.1",
+  "name": "ClockJock",
+  "launch_path": "/index.html",
+  "description": "Stopwatch for Runners",
+  "icons": {
+    "64": "/images/logo64.png",
+    "128": "/images/logo128.png"
+  },
+  "developer": {
+    "name": "Kamal Radharamanan"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+    "desktop-notification": {
+      "description": "To show notifications"
+    },
+    "geolocation": {
+      "description": "Marking out user location"
+    }
+  },
+  "locales": {
+   "en": {
+      "name": "ClockJock",
+      "description": "Stopwatch for Runners"
+    },
+    "en-US": {
+      "name": "ClockJock",
+      "description": "Stopwatch for Runners"
+    }
+  }
+}

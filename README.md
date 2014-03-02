@@ -1,4 +1,1 @@
-ClockJock
-=========
-
-FFOS Stopwatch for runners
+FFOS Stopwatch for runners.
