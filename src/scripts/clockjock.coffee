@@ -7,13 +7,22 @@ ClockJock.controller 'ClockCtrl', ($scope) ->
   $scope.ints = [0, 0, 0, 0] #hours, minutes, seconds, milliseconds
   $scope.running = false
 
+  parseTime = =>
+    time = $scope.ints.map(String)
+    console.log time
+    time = time.map((t)->"0"+t if t.length is 1)
+    (time[3] = "0"+time[3]) if time[3].length is 2
+    $scope.time = time
+
+  parseTime.call()
+
   $scope.startStop = ->
-    sum = $scope.ints.reduce((a, b)-> a + b) #implicitly assume first val is 0
     if $scope.running is false
-      if sum is 0
-        $scope.interval = setInterval((->updateTimer(Date.now())), 1) #set start time for duration
+      if ($scope.ints.reduce((a, b)-> a + b)) is 0 #implicitly assume first val is 0
+        base_time = Date.now()
+        $scope.interval = setInterval((->updateTimer(base_time)), 1) #set start time for duration
         $scope.running = true
-      else if sum > 0
+      else
         $scope.ints = [0, 0, 0, 0]
     else
       clearInterval($scope.interval)
@@ -33,7 +42,7 @@ ClockJock.controller 'ClockCtrl', ($scope) ->
 
   updateTimer = (t)->
     d = Date.now() - t #time difference every ms from start time
-    $scope.$apply =>
-      $scope.ints = [hours(d), minutes(d), seconds(d), milliseconds(d)]
+    $scope.ints = [hours(d), minutes(d), seconds(d), milliseconds(d)]
+    parseTime()
+    $scope.$apply()
 
-  $scope.time = $scope.ints.map(String).map((t)->"0"+t if t.length is 1).map((t,i)->if (i is 2 and t.length is 2) then "0"+t else t)
