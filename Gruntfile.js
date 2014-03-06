@@ -22,7 +22,7 @@ module.exports = function(grunt) {
       },
       angular: {
         src: 'bower_components/angular/angular.min.js',
-        dest: 'dist/vendor/angular.min.js'
+        dest: 'dist/scripts/angular.min.js'
       }
     },
 
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
     compress: {
       release: {
         options: {
-          archive: 'calculator.zip',
+          archive: 'clockjock.zip',
           mode: 'zip'
         },
         files: [
@@ -58,10 +58,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-stylus');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-compress');
 
-  grunt.registerTask('default', ['clean:pre', 'copy:main', 'copy:angular', 'coffee:main', 'stylus:main', 'clean:post']);
+  grunt.registerTask('default', ['clean:pre', 'copy:main', 'copy:angular', 'coffee:main', 'sass:main', 'clean:post']);
   grunt.registerTask('release', function() {
     grunt.task.run('default');
     grunt.task.run('compress:release');

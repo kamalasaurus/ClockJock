@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ClockJock">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" type="text/css" href="css/toolbars.css">
+  <link rel="stylesheet" type="text/css" href="styles/app.css">
   <title>Stopwatch for Runners</title>
 </head>
 
-<body>
+<body ng-controller="ClockCtrl">
 
-  <script type="text/javascript" src="js/base.js"></script>
-  <script type="text/javascript" src="js/webapp.js"></script>
-  <script type="text/javascript" src="js/offline.js"></script>
+  <div class="body_container" ng-click="startStop()">
+    <div class="digital">{{time}}</div>
+    <canvas class="analog"></canvas>
+  </div>
+
+  <script type="text/javascript" src="scripts/angular.min.js"></script>
+  <script type="text/javascript" src="scripts/clockjock.js"></script>
 
 </body>
 </html>
